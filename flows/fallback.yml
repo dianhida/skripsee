@@ -1,42 +1,20 @@
-priority: 0
 fallback: true
 intents:
-    hi:
-        initial: true
-        type: text
-        classifier:
-            nlu: greet
-            
-    dunno:
+    fallbackIntent:
         fallback: true
+        
 states:
     init:
         initial: true
-        transitions:
-            sayHi:
-                condition: intent=="hi"
-            sorry:
-                fallback: true
-    sayHi:
-        end: true
-        action:
-            -
-                name: sayHi
-    sorry:
-        end: true
-        action:
-            -
-                name: saySorry
+    transitions:
+        init:
+            fallback: true
+    action:
+        name: fallbackAction
+    end: true
+
 actions:
-    sayHi:
+    fallbackAction:
         type: text
         options:
-            data: $(config.messages)
-            path: templates
-            template: '$[sayHi]'
-    saySorry:
-        type: text
-        options:
-            data: $(config.messages)
-            path: templates
-            template: '$[saySorry]'
+            text: "Maaf, saya tidak mengerti."

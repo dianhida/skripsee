@@ -1,8 +1,10 @@
 schema: kata.ai/schema/kata-ml/1.0
 name: Skripsee
 desc: Bot Description
-version: 3.0.2
+version: 6.0.6
 flows:
+    welcome: $include(./flows/welcome.yml)
+    order: $include(./flows/order.yml)
     fallback: $include(./flows/fallback.yml)
 config:
     messages: $include(./messages.yml)

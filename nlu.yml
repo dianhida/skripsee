@@ -1,9 +1,31 @@
-greet :
+order:
     type: keyword
     options:
         keywords:
-            hello:
-                - hello
-                - hallo
-                - hai
-                - hi
+            pizzaOrder:
+                - pesan
+                - pesen
+                - beli
+                - pesen pizza
+                - pizza dong
+                - pizza
+                - pesan dong
+
+# model for question, instruction, statement & greeting (qisg)        
+qisg:
+    type: verstandClassifier
+    options:
+        model: cb58d784-9e87-40d5-bae1-6077b934c061   
+# nlu for YES or NO statement
+yesno:
+    type: verstandClassifier
+    options:
+        model: b7df76e5-b95d-4925-9f86-2796ea85403a
+ner:
+    type: verstandTagger
+    options:
+        model: dcaca5ae-be7f-42f2-a6a1-2b250d4336fd
+quantity:
+    type: regex
+    options:
+        regex: "[1-9]"
